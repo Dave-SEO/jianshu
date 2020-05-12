@@ -12,14 +12,6 @@
         Button
     } from './style'
     class Header extends Component {
-        constructor(props){
-            super(props)
-            this.state = {
-                foucsd: false
-            }
-            this.searchFocus = this.searchFocus.bind(this)
-            this.searchBlur = this.searchBlur.bind(this)
-        }
         render(){
             return (
                 <HeaderWrapper>
@@ -33,16 +25,16 @@
                         </NavItem>
                         <NavSearchWrap>
                             <CSSTransition 
-                                in={this.state.foucsd}
+                                in={this.props.foucsd}
                                 timeout={200}
                                 classNames='slide'
                             >
-                                <NavSearch className={this.state.foucsd ? 'foucsd': ''} 
-                                            onFocus={this.searchFocus}
-                                            onBlur={this.searchBlur}
+                                <NavSearch className={this.props.foucsd ? 'foucsd': ''} 
+                                            onFocus={this.props.searchFocus}
+                                            onBlur={this.props.searchBlur}
                                 ></NavSearch>
                             </CSSTransition>
-                          <i className={this.state.foucsd ? 'foucsds iconfont': 'iconfont'}>&#xe782;</i>
+                          <i className={this.props.foucsd ? 'foucsds iconfont': 'iconfont'}>&#xe782;</i>
                         </NavSearchWrap>
                         <Addition>
                             <Button className='write'>
@@ -55,21 +47,28 @@
                 </HeaderWrapper>
             )
         }
-        searchFocus(){
-            this.setState({
-                foucsd: true
-            })
-        }
-        searchBlur(){
-            this.setState({
-                foucsd: false
-            })
+    }
+    const mapStateToProps = (state)=>{
+        return {
+            foucsd: state.foucsd
         }
     }
-    const mapStateToProps = ()=>{
-
-    }
-    const mapDispathToProps = ()=>{
-        
+    const mapDispathToProps = (dispatch)=>{
+        return {
+            searchFocus(){
+                const action = {
+                    type: 'searchFocus',
+                    data: true
+                }
+                dispatch(action)
+            },
+            searchBlur(){
+                const action = {
+                    type: 'searchBlur',
+                    data: false
+                }
+                dispatch(action)
+            }
+        }
     }
     export default connect(mapStateToProps, mapDispathToProps)(Header)

@@ -2,3 +2,6 @@
 [0512/122824.749:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: 管道已结束。 (0x6D)
 [0512/175346.749:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: 管道已结束。 (0x6D)
 [0512/182211.416:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: 管道已结束。 (0x6D)
+[0513/134954.779:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: 管道已结束。 (0x6D)
+[0513/161006.672:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: 管道已结束。 (0x6D)
+[0514/103003.067:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: 管道已结束。 (0x6D)

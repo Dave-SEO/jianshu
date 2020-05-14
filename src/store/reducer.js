@@ -1,16 +1,5 @@
-const defaultState = {
-    foucsd: false
-}
-export default (state = defaultState, action) =>{
-    if(action.type === 'searchFocus'){
-        return {
-            foucsd: true
-        }
-    }
-    if(action.type === 'searchBlur'){
-        return {
-            foucsd: false
-        }
-    }
-    return state
-}
+import {combineReducers} from 'redux'
+import {reducer as headerRducer} from '../common/header/store'
+export default combineReducers({
+    header: headerRducer
+})

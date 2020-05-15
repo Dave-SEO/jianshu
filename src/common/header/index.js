@@ -1,7 +1,7 @@
     import React, {Component} from 'react'
     import {CSSTransition} from 'react-transition-group'
     import {connect} from 'react-redux'
-    import {actionTypes, actionCreators} from './store' 
+    import {actionCreators} from './store' 
     import {
         HeaderWrapper,
         Logo,
@@ -51,7 +51,7 @@
     }
     const mapStateToProps = (state)=>{
         return {
-            foucsd: state.header.foucsd
+            foucsd: state.header.get('foucsd')
         }
     }
     const mapDispathToProps = (dispatch)=>{

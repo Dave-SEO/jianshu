@@ -123,3 +123,44 @@ export const NavSearchWrap = styled.div`
         color:#fff;
     }
 `
+export const SearchInfo = styled.div`
+    width: 250px;
+    padding: 6px;
+    position: absolute;
+    margin-top: 9px;
+    left: 0px;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
+    border-radius: 4px;
+`
+export const SearchItem = styled.a.attrs({
+})`
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    color: #333;
+    font-size:14px;
+    border-radius: 4px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover{
+        background-color: #f0f0f0;
+    }
+    &:before{
+        content: "";
+        left: 27px;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        top: -5px;
+        z-index: -1;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 0 8px rgba(0,0,0,.2);
+        box-sizing: border-box;
+    }
+`

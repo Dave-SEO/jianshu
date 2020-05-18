@@ -1,15 +1,19 @@
 import * as actionTypes from './actionsTypes' 
 import {fromJS} from 'immutable'
 const defaultState = fromJS({
-    foucsd: false
+    foucsd: false,
+    list: []
 })
 export default (state = defaultState, action) =>{
-    if(action.type === actionTypes.SEARCHFOCUS){
-       // immutable 对象的set方法，会结合之前的immutable对象的值，返回一个全新的对象
-      return state.set('foucsd', true)
+    switch (action.type) {
+        case actionTypes.SEARCHFOCUS:
+               // immutable 对象的set方法，会结合之前的immutable对象的值，返回一个全新的对象
+            return state.set('foucsd', true)
+        case actionTypes.SEARCHBLUR:
+            return state.set('foucsd', false)
+        case actionTypes.SEARCHDATA:
+            return state.set('list', action.data)
+        default:
+            return state
     }
-    if(action.type === actionTypes.SEARCHBLUR){
-        return state.set('foucsd', false)
-    }
-    return state
 }

@@ -10,9 +10,23 @@
         NavSearch,
         NavSearchWrap,
         Addition,
-        Button
+        Button,
+        SearchInfo,
+        SearchItem
     } from './style'
     class Header extends Component {
+        showSearch(){
+            return (
+                <SearchInfo>
+                    {
+                        this.props.list.map(item=>(
+                            <SearchItem key={item}>{item}</SearchItem>
+                        ))
+                    }
+                    
+                </SearchInfo>
+            )
+        }
         render(){
             return (
                 <HeaderWrapper>
@@ -36,6 +50,7 @@
                                 ></NavSearch>
                             </CSSTransition>
                           <i className={this.props.foucsd ? 'foucsds iconfont': 'iconfont'}>&#xe782;</i>
+                          {this.props.foucsd ? this.showSearch() : ''}
                         </NavSearchWrap>
                         <Addition>
                             <Button className='write'>
@@ -51,12 +66,14 @@
     }
     const mapStateToProps = (state)=>{
         return {
-            foucsd: state.header.get('foucsd')
+            foucsd: state.header.get('foucsd'),
+            list: state.header.get('list')
         }
     }
     const mapDispathToProps = (dispatch)=>{
         return {
             searchFocus(){
+                dispatch(actionCreators.getList())
                 dispatch(actionCreators.searchFocus())
             },
             searchBlur(){

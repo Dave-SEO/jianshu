@@ -9,7 +9,8 @@ export const searchBlur = ()=>({
 })
 export const seardata = (data) =>({
     type: actionTypes.SEARCHDATA,
-    data: fromJS(data)
+    data: fromJS(data),
+    totalPage: Math.ceil(data.length / 10)
 })
 export const getList = ()=> {
     return  async(dispatch) =>{
@@ -17,3 +18,13 @@ export const getList = ()=> {
     if(code === 0) dispatch(seardata(data))  
 }
 }
+export const mouseEnter = () =>({
+    type: actionTypes.SETMOUSEENTER,
+})
+export const mouseLeave = () =>({
+    type: actionTypes.SETMOUSELEAVE,
+})
+export const changePage = (page) =>({
+    type: actionTypes.CHANGEPAGE,
+    page
+})

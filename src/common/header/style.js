@@ -135,16 +135,17 @@ export const SearchInfo = styled.div`
 `
 export const SearchItem = styled.a.attrs({
 })`
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    display: block;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
     color: #333;
-    font-size:14px;
-    border-radius: 4px;
+    font-size:12px;
+    border-radius: 2px;
     padding: 0 5px;
     box-sizing: border-box;
     cursor: pointer;
+    border: 1px solid #f0f0f0;
+    margin-right:3px;
     &:hover{
         background-color: #f0f0f0;
     }
@@ -162,5 +163,31 @@ export const SearchItem = styled.a.attrs({
         background-color: #fff;
         box-shadow: 0 0 8px rgba(0,0,0,.2);
         box-sizing: border-box;
+    }
+`
+export const SearchTop = styled.div`
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+    .rote{
+        position: absolute;
+        top: 0px;
+        right: 51px;
+        font-size: 12px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        transition: all .2s ease-in;
+        transform: rotate(0deg);
+        transform-origin: center center;
+    }
+    button{
+        color:#333;
+        border: none;
+        background: #Fff;
+        cursor: pointer;
     }
 `

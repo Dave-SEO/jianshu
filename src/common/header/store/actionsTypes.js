@@ -1,3 +1,6 @@
 export const SEARCHFOCUS = 'header/SEARCHFOCUS'
 export const SEARCHBLUR = 'header/SEARCHBLUR'
 export const SEARCHDATA = 'header/SEARCHDATA'
+export const SETMOUSEENTER = 'header/SETMOUSEENTER'
+export const SETMOUSELEAVE = 'header/SETMOUSELEAVE'
+export const CHANGEPAGE = 'header/CHANGEPAGE'

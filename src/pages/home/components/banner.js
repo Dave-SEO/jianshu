@@ -41,8 +41,9 @@ class ReactBanner extends Component{
         const {bannerList} = this.props
         const bannerListJS = bannerList.toJS()
         const bannerUI = []
-        if(bannerListJS.banner){
-              bannerListJS.banner.map(item =>{
+        if(bannerListJS){
+          console.log('bannerListJS', bannerListJS)
+              bannerListJS.map(item =>{
                   bannerUI.push(
                     <div className="swiper-slide" key={item.id}>
                         <img className='img' src={item.imgUrl} alt="" />

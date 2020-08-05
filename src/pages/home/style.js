@@ -64,6 +64,15 @@ export const HomeListLI = styled.li`
         color: #b4b4b4;
     }
 `
+export const MoreLIst = styled.div`
+    background: #ccc;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #fff;
+    margin: 20px 0;
+`
 export const HomeTitle = styled.h3`
     color: #333;
     margin: -7px 0 4px;
@@ -135,12 +144,20 @@ export const AuthorTop = styled.div`
         cursor: pointer;
         color: #969696;
     }
+    .rote{
+        display: inline-block;
+        transition: all .2s ease-in;
+        transform: rotate(0deg);
+        transform-origin: center center;
+    }
 `
 export const AuthorBottom = styled.ul`
     width: 100%;
 `
 export const AuthorItem = styled.li`
     width: 100%;
+    overflow: hidden;
+    margin-bottom: 5px;
     .avatar{
         float: left;
         width: 48px;
@@ -175,5 +192,18 @@ export const AuthorItem = styled.li`
         color: #42c02e;
         border-color: #42c02e;
     }
+`
+export const BackTop = styled.div`
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #ccc;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align:center;
 `
 //  <ui url="http:sxxxxx"><ui>  background:url(${(props)=> props.imgUrl)

@@ -1,7 +1,9 @@
     import React, {Component} from 'react'
     import {CSSTransition} from 'react-transition-group'
     import {connect} from 'react-redux'
-    import {actionCreators} from './store' 
+    import {actionCreators} from './store'
+    import {actionCreators as loginActionCreators} from '../../pages/login/store'
+    import { Link } from 'react-router-dom';
     import {
         HeaderWrapper,
         Logo,
@@ -49,14 +51,18 @@
            
         }
         render(){
-            const {foucsd, list, searchFocus, searchBlur} = this.props
+            const {foucsd, list, searchFocus, searchBlur, loginStatus, outLogin} = this.props
             return (
                 <HeaderWrapper>
                     <Logo></Logo>
                     <Nav>
-                        <NavItem className='left active'>首页</NavItem>
+                        <NavItem className='left active' >
+                          <Link style={{color: '#ea6f5a'}} to={'/'}>
+                            首页
+                          </Link>
+                        </NavItem>
                         <NavItem className='left'>下载app</NavItem>
-                        <NavItem className='right'>登陆</NavItem>
+                        {loginStatus ? <NavItem className='right' onClick={()=>outLogin()}>退出</NavItem> : <Link to='/login'><NavItem className='right'>登陆</NavItem></Link>}
                         <NavItem className='right'>
                           <span className="iconfont Aa">&#xe636;</span>
                         </NavItem>
@@ -79,7 +85,7 @@
                              <i className='iconfont yumao'>&#xe600;</i>
                               写文章
                             </Button>
-                            <Button className='reg'>注册</Button>
+                            {!loginStatus ? <Button className='reg'>注册</Button> : ''}
                         </Addition>
                     </Nav>
                 </HeaderWrapper>
@@ -92,7 +98,8 @@
             list: state.header.get('list'),
             mouseIn: state.header.get('mouseIn'),
             page: state.header.get('page'),
-            totalPage: state.header.get('totalPage')
+            totalPage: state.header.get('totalPage'),
+            loginStatus: state.loginStore.get('loginStatus')
         }
     }
     const mapDispathToProps = (dispatch)=>{
@@ -123,6 +130,9 @@
                 }else{
                     dispatch(actionCreators.changePage(1))
                 }
+            },
+            outLogin(){
+                dispatch(loginActionCreators.outLogin())
             }
         }
     }

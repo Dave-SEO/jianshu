@@ -105,6 +105,7 @@ export const Button = styled.div`
 export const NavSearchWrap = styled.div`
     float:left;
     position:relative;
+    z-index:2;
     .iconfont{
         position:absolute;
         right: 6px;

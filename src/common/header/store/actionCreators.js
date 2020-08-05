@@ -10,6 +10,7 @@ export const searchBlur = ()=>({
 export const seardata = (data) =>({
     type: actionTypes.SEARCHDATA,
     data: fromJS(data),
+    // 总页数：数据十条为一页
     totalPage: Math.ceil(data.length / 10)
 })
 export const getList = ()=> {

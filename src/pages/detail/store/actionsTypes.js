@@ -1,0 +1,1 @@
+export const DETAILLSI = 'detail/DETAILLSI'
